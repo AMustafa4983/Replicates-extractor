@@ -1,7 +1,7 @@
 import openai
 import os
 
-os.environ['OPEN_API_KEY'] = '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'
+os.environ['OPEN_API_KEY'] = 'Your_Code'
 
 key = os.environ.get("OPEN_API_KEY")
 
