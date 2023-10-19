@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Replicates API - Submit</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script>
+        function showLoadingScreen() {
+            var overlay = document.getElementById("overlay");
+            overlay.style.display = "flex";
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>Replicates Extractor - Submit</h1>
+    <div class="container">
+        <form action="/submit" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept=".txt">
+            <input class="btn" type="submit" value="Upload & Submit" onclick="showLoadingScreen()">
+        </form>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="overlay">
+        <div class="loading-message">Processing...</div>
+        <div class="loader"></div>
+    </div>
+
+    <br>
+    <hr>
+    <h1>Replicates Extractor - Results</h1>
+    <div class="output">
+        <div class="column">
+            <h2>Materials</h2>
+            <ul>
+                {% for material in materials %}
+                <li>{{ material }}</li>
+                <br>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="column">
+            <h2>Suggested</h2>
+            <ul>
+                {% for suggestion in suggested %}
+                <li>{{ suggestion }}</li>
+                <br>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="column">
+            <h2>Suppliers</h2>
+            <ul>
+                {% for supplier in suppliers %}
+                <li>{{ supplier }}</li>
+                <br>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+</body>
+
+</html>
